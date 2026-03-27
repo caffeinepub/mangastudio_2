@@ -1,0 +1,165 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@font-face {
+  font-family: "Bricolage Grotesque";
+  src: url("/assets/fonts/BricolageGrotesque.woff2") format("woff2");
+  font-weight: 200 800;
+  font-display: swap;
+}
+
+@font-face {
+  font-family: "Plus Jakarta Sans";
+  src: url("/assets/fonts/PlusJakartaSans.woff2") format("woff2");
+  font-weight: 300 700;
+  font-display: swap;
+}
+
+@layer base {
+  :root {
+    --radius: 0.75rem;
+    /* Dark neon purple theme - AniPulse Studio */
+    --background: 0.09 0.025 293;
+    --foreground: 0.97 0.01 293;
+    --card: 0.13 0.035 293;
+    --card-foreground: 0.97 0.01 293;
+    --popover: 0.13 0.035 293;
+    --popover-foreground: 0.97 0.01 293;
+    /* Primary = neon purple #A855F7 */
+    --primary: 0.65 0.31 293;
+    --primary-foreground: 0.97 0.01 293;
+    /* Secondary = magenta/pink #EC4899 */
+    --secondary: 0.65 0.27 345;
+    --secondary-foreground: 0.97 0.01 293;
+    --muted: 0.18 0.04 293;
+    --muted-foreground: 0.65 0.06 293;
+    --accent: 0.21 0.06 293;
+    --accent-foreground: 0.97 0.01 293;
+    --destructive: 0.62 0.25 27;
+    --destructive-foreground: 0.97 0.01 293;
+    --border: 0.21 0.06 293;
+    --input: 0.21 0.06 293;
+    --ring: 0.65 0.31 293;
+    --chart-1: 0.65 0.31 293;
+    --chart-2: 0.65 0.27 345;
+    --chart-3: 0.7 0.22 220;
+    --chart-4: 0.75 0.2 50;
+    --chart-5: 0.6 0.28 310;
+    --sidebar: 0.11 0.03 293;
+    --sidebar-foreground: 0.97 0.01 293;
+    --sidebar-primary: 0.65 0.31 293;
+    --sidebar-primary-foreground: 0.97 0.01 293;
+    --sidebar-accent: 0.21 0.06 293;
+    --sidebar-accent-foreground: 0.97 0.01 293;
+    --sidebar-border: 0.21 0.06 293;
+    --sidebar-ring: 0.65 0.31 293;
+  }
+
+  * {
+    @apply border-border;
+  }
+
+  html {
+    color-scheme: dark;
+  }
+
+  body {
+    @apply bg-background text-foreground;
+    font-family: "Plus Jakarta Sans", "Inter", system-ui, sans-serif;
+    background: radial-gradient(
+      ellipse at top,
+      oklch(0.13 0.055 293) 0%,
+      oklch(0.09 0.025 293) 60%
+    );
+    min-height: 100vh;
+  }
+}
+
+@layer utilities {
+  .glow-purple {
+    box-shadow: 0 0 20px oklch(0.65 0.31 293 / 0.4), 0 0 40px
+      oklch(0.65 0.31 293 / 0.2);
+  }
+  .glow-purple-sm {
+    box-shadow: 0 0 10px oklch(0.65 0.31 293 / 0.5), 0 0 20px
+      oklch(0.65 0.31 293 / 0.25);
+  }
+  .glow-magenta {
+    box-shadow: 0 0 20px oklch(0.65 0.27 345 / 0.4), 0 0 40px
+      oklch(0.65 0.27 345 / 0.2);
+  }
+  .text-glow-purple {
+    text-shadow: 0 0 20px oklch(0.65 0.31 293 / 0.8), 0 0 40px
+      oklch(0.65 0.31 293 / 0.4);
+  }
+  .text-glow-magenta {
+    text-shadow: 0 0 20px oklch(0.65 0.27 345 / 0.8), 0 0 40px
+      oklch(0.65 0.27 345 / 0.4);
+  }
+  .glass-card {
+    background: oklch(0.13 0.035 293 / 0.8);
+    backdrop-filter: blur(12px);
+    border: 1px solid oklch(0.21 0.06 293);
+  }
+  .speed-lines {
+    background: repeating-conic-gradient(
+      oklch(0.65 0.31 293 / 0.12) 0deg,
+      transparent 3deg,
+      transparent 6deg
+    );
+  }
+  .starfield {
+    background-image: radial-gradient(
+        1px 1px at 20% 30%,
+        oklch(0.97 0.01 293 / 0.6) 0%,
+        transparent 100%
+      ),
+      radial-gradient(
+        1px 1px at 80% 10%,
+        oklch(0.97 0.01 293 / 0.4) 0%,
+        transparent 100%
+      ),
+      radial-gradient(
+        1px 1px at 50% 70%,
+        oklch(0.97 0.01 293 / 0.5) 0%,
+        transparent 100%
+      ),
+      radial-gradient(
+        1px 1px at 10% 60%,
+        oklch(0.65 0.31 293 / 0.7) 0%,
+        transparent 100%
+      ),
+      radial-gradient(
+        1px 1px at 90% 80%,
+        oklch(0.65 0.27 345 / 0.6) 0%,
+        transparent 100%
+      ),
+      radial-gradient(
+        2px 2px at 40% 20%,
+        oklch(0.97 0.01 293 / 0.3) 0%,
+        transparent 100%
+      ),
+      radial-gradient(
+        1px 1px at 70% 50%,
+        oklch(0.65 0.31 293 / 0.5) 0%,
+        transparent 100%
+      );
+  }
+}
+
+/* Scrollbar styling */
+::-webkit-scrollbar {
+  width: 6px;
+  height: 6px;
+}
+::-webkit-scrollbar-track {
+  background: oklch(0.09 0.025 293);
+}
+::-webkit-scrollbar-thumb {
+  background: oklch(0.21 0.06 293);
+  border-radius: 3px;
+}
+::-webkit-scrollbar-thumb:hover {
+  background: oklch(0.65 0.31 293 / 0.6);
+}
